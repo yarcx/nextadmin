@@ -2,8 +2,8 @@ import React from "react";
 import Card from "../ui/dashboard/cards/card";
 import styles from "../ui/dashboard/dashboard.module.css";
 import Rightbar from "../ui/dashboard/rightbar/rightbar";
-import Transaction from "../ui/dashboard/Transactions/Transaction";
-import Chart from "../ui/dashboard/Chart/Chart";
+import Transaction from "../ui/dashboard/transactions/transaction";
+import Chart from "../ui/dashboard/chart/chart";
 
 const page = () => {
   return (
