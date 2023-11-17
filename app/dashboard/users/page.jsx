@@ -1,7 +1,7 @@
-import React from "react";
+import styles from "@/app/ui/usersPage/userspage.module.css";
 
 const Page = () => {
-  return <div>Users page</div>;
+  return <div className={styles.container}>Users page</div>;
 };
 
 export default Page;
