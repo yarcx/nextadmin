@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--secondaryBg);
+  padding: 10px;
+  border-radius: 10px;
+  width: max-content;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  width: 100%;
+}
+.icons {
+  display: flex;
+  gap: 20px;
+}
