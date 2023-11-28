@@ -1,10 +1,13 @@
-import Pagination from "@/app/ui/dashboard/pagination/Pagination";
-import SearchComponent from "@/app/ui/dashboard/search/SearchComponent";
-import styles from "@/app/ui/usersPage/userspage.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { fetchUsers } from "../../lib/data";
+import Pagination from "../../ui/dashboard/pagination/Pagination";
+import SearchComponent from "../../ui/dashboard/search/SearchComponent";
+import styles from "../../ui/usersPage/userspage.module.css";
 
-const Page = () => {
+const Page = async () => {
+  const users = await fetchUsers();
+  console.log(users, "check this guy see");
   return (
     <div className={styles.container}>
       <div className={styles.top}>
