@@ -8,6 +8,7 @@ import styles from "../../ui/usersPage/userspage.module.css";
 const Page = async () => {
   const users = await fetchUsers();
   console.log(users, "check this guy see");
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -30,30 +31,32 @@ const Page = async () => {
         </thead>
 
         <tbody>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src='/noavatar.png'
-                  alt=''
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John Doe
-              </div>
-            </td>
-            <td className={styles.email}>John@gmail.com</td>
-            <td>13.02.2022</td>
-            <td>Admin</td>
-            <td>active</td>
-            <td className={`${styles.buttons}`}>
-              <Link href='/dashboard/users/test'>
-                <button className={`${styles.button} ${styles.view}`}>View</button>
-              </Link>
-              <button className={`${styles.button} ${styles.delete}`}>Delete</button>
-            </td>
-          </tr>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>
+                <div className={styles.user}>
+                  <Image
+                    src={user?.img ? user.img : "/noavatar.png"}
+                    alt=''
+                    width={40}
+                    height={40}
+                    className={styles.userImage}
+                  />
+                  {user.username}
+                </div>
+              </td>
+              <td className={styles.email}>{user.email}</td>
+              <td>{user?.createdAt?.toString().slice(4, 16) || "13.02.2022"}</td>
+              <td>{user?.isAdmin ? "Admin" : "client"}</td>
+              <td>{user?.isActive ? "active" : "passive"}</td>
+              <td className={`${styles.buttons}`}>
+                <Link href={`/dashboard/users/${user?.id}`}>
+                  <button className={`${styles.button} ${styles.view}`}>View</button>
+                </Link>
+                <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <Pagination />

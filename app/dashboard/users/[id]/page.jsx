@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/app/ui/usersPage/singleUsersPage/singleUserspage.module.css";
+import styles from "../../../ui/usersPage/singleUsersPage/singleUserspage.module.css";
 import Image from "next/image";
 
 const SingleUserPage = () => {
